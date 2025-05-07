@@ -20,7 +20,7 @@ export function HomeScreen() {
       ]);
       setNewTask("");
 
-      newTaskInputRef.current?.blur()
+      newTaskInputRef.current?.blur();
     }
   }
   function handleTaskDone(id: string) {
@@ -32,7 +32,7 @@ export function HomeScreen() {
     );
   }
   function handleTaskDeleted(id: string) {
-    Alert.alert("Excluir tarefas", "Deseja excluir essa tarefa?", [
+    Alert.alert("Excluir tarefa", "Deseja excluir essa tarefa?", [
       {
         text: "Sim",
         style: "default",
