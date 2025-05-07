@@ -1,5 +1,5 @@
 export type TaskDTO = {
-    id?: string | undefined,
+    id: string,
     title: string,
     isCompleted: boolean
 }

@@ -4,10 +4,21 @@ import { TaskDTO } from "../../dtos/TaskDTO";
 import { styles } from "./styles";
 import { theme } from "../../theme/index";
 
-export function Task({ title, isCompleted }: TaskDTO) {
+type TaskProps = TaskDTO & {
+  onTaskDone: (id: string) => void;
+  onTaskDeleted: (id: string) => void;
+};
+
+export function Task({
+  id,
+  title,
+  isCompleted,
+  onTaskDone,
+  onTaskDeleted,
+}: TaskProps) {
   return (
     <View style={styles.taskContainer}>
-      <TouchableOpacity>
+      <TouchableOpacity onPress={() => onTaskDone(id)}>
         <MaterialCommunityIcons
           name={
             isCompleted
@@ -25,7 +36,7 @@ export function Task({ title, isCompleted }: TaskDTO) {
           {title}
         </Text>
       </View>
-      <TouchableOpacity>
+      <TouchableOpacity onPress={() => onTaskDeleted(id)}>
         <MaterialCommunityIcons
           name="trash-can-outline"
           size={20}
